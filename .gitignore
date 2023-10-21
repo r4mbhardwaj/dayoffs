@@ -1,3 +1,29 @@
+# default
 __pycache__/
 .pytest_cache/
 .coverage
+
+# install
+*.egg-info/
+*.installed.cfg
+*.eggs/
+dist/
+build/
+
+# pyenv
+.python-version
+
+# environments
+.venv
+env/
+venv/
+ENV/
+
+# pybuilder
+target/
+
+# jupyter
+.ipynb_checkpoints
+
+# vscode
+.vscode
