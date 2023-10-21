@@ -1,0 +1,3 @@
+ephem
+pytest
+pytest-cov
