@@ -1,34 +1,40 @@
-name: Build and Deploy
+name: Documentation Build and GitHub Pages Deployment
+
 on:
   push:
     branches:
-      - main  # Or replace with the branch where you're editing your Sphinx docs
+      - main  # Set this to the branch where your Sphinx documentation resides
 
 jobs:
-  docs:
+  build-and-deploy:
+    name: Sphinx Documentation Build and Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
+      - name: Check Out Source Code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set Up Python Environment
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7'  # for Sphinx to use
+          python-version: '3.7'  # Modify this based on the Python version you are using
 
-      - name: Install dependencies
+      - name: Install Documentation Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install Sphinx  # add any other dependencies your docs require
-          pip install -r requirements.txt  # if you have a specific doc requirements file
+          pip install Sphinx  # Add any other Sphinx-related dependencies your project needs
+          # if you have project-specific requirements separate from Sphinx, uncomment the next line.
+          # pip install -r requirements.txt
 
-      - name: Build Docs
+      - name: Build Sphinx Documentation
         run: |
           cd docs
           make html
 
-      - name: Deploy to GitHub Pages
+      - name: Create .nojekyll file
+        run: touch ./docs/build/html/.nojekyll
+
+      - name: Deploy Generated Documentation to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          branch: gh-pages  # The branch the action should deploy to.
-          folder: docs/build/html  # The folder the action should deploy.
+          branch: gh-pages  # Target branch for GitHub Pages to deploy
+          folder: docs/build/html  # Folder containing the static HTML to deploy
