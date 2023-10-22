@@ -16,7 +16,7 @@ We take security very seriously. If you've discovered a security vulnerability i
 
 **Do NOT create a GitHub issue for security vulnerabilities. Publicly disclosing these vulnerabilities could put the wider community at risk.** 
 
-We request that all security reporting be done through sensitive email communications. If you've found a vulnerability, please contact us at [r4mbhardwaj@gmail.com] - replace this with your project's actual report submission email.
+We request that all security reporting be done through sensitive email communications. If you've found a vulnerability, please contact us at [r4mbhardwaj@gmail.com]
 
 In your report, please include:
 
